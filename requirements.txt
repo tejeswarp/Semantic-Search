@@ -1,0 +1,10 @@
+fastapi==0.109.0
+pandas
+uvicorn==0.21.1
+tqdm==4.66.1
+python-dotenv==1.0.0
+sentence-transformers
+requests
+PyYAML
+opensearch-py==2.2.0
+confluent-kafka
