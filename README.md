@@ -80,6 +80,11 @@ Request Body:
   }
 }
 
+follow below steps for running indexing pipeling in local, which reads mock data from csv and indexes data with embeddings in local Opensearch cluster
+
+(venv) PS C:\Users\Documents\GitHub\Semantic-Search\src>python main.py
+
+
 Start UVICORN server in local for REST API's
 
 (venv) PS C:\Users\Documents\GitHub\Semantic-Search\src>uvicorn app:app --host 0.0.0.0 --port 8000 --reload
