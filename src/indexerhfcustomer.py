@@ -5,18 +5,17 @@ from opensearchpy.helpers import bulk
 from tqdm import tqdm
 import time
 from vecconfig import INDEX_NAME
+import env
 def main(df):
     #df = df.replace(np.nan, '', regex=True)
     initial_time = time.time()
     # Define OpenSearch connection parameters
-    host = "localhost"
-    port = 9200  # Default OpenSearch port
     client = OpenSearch(
-        hosts=[{"host": host, "port": port}],
+        hosts=[{"host": env.elastic_server_host, "port": env.elastic_server_port}],
         http_compress=True,
         use_ssl=False,
         verify_certs=False,
-        http_auth=("admin", "R06ust@09"),
+        http_auth=(env.opensearch_rest_username, env.opensearch_rest_password),
     )
 
     # Check connection
