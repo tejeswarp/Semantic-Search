@@ -16,8 +16,10 @@ Run the dependencies
 Steps to create Index in local OpenSearch Cluster
 
 EndPoint: http://localhost:9200/consumer_knn_index
+
 Method: PUT
-Request:
+
+Request Body:
 
 {
   "settings": {
