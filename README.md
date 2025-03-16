@@ -11,3 +11,69 @@ C:\Users\Documents\GitHub\Semantic-Search>venv\Scripts\activate
 
 Run the dependencies
 (venv) PS C:\Users\Documents\GitHub\Semantic-Search\src> pip install -r requirements.txt
+
+
+Steps to create Index in local OpenSearch Cluster
+
+EndPoint: http://localhost:9200/consumer_knn_index
+Method: PUT
+Request:
+
+{
+  "settings": {
+    "index.knn": true
+  },
+  "mappings": {
+    "properties": {
+      "fname": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "lname": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "address": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "compositevector": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "compositevector_vector": {
+        "type": "knn_vector",
+        "dimension": 384,
+        "method": {
+          "engine": "nmslib",
+          "space_type": "cosinesimil",
+          "name": "hnsw",
+          "parameters": {
+            "ef_construction": 512,
+            "m": 16
+          }
+        }
+      }
+    }
+  }
+}
