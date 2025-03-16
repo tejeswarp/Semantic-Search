@@ -79,3 +79,18 @@ Request Body:
     }
   }
 }
+
+Start UVICORN server in local for REST API's
+
+(venv) PS C:\Users\Documents\GitHub\Semantic-Search\src>uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+
+Access Swagger through below URL
+
+http://127.0.0.1:8000/docs
+
+CURL for testing Semantic search
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/search_customer?query=durga' \
+  -H 'accept: application/json' \
+  -d ''
