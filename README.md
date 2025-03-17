@@ -110,3 +110,95 @@ curl -X 'POST' \
   "fname": "sandep",
   "address": "stevnage"
 }'
+
+Customer Index
+*************
+curl --request PUT \
+  --url http://localhost:9200/customer_knn_index \
+  --header 'authorization: Basic YWRtaW46UjA2dXN0QDA5' \
+  --header 'content-type: application/json' \
+  --data '{
+  "settings": {
+    "index.knn": true
+  },
+  "mappings": {
+    "properties": {
+      "fname": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "lname": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "address": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "countryofbirth": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "emailaddress": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "gender": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "compositevector": {
+        "type": "text",
+        "fields": {
+          "keyword": {
+            "type": "keyword",
+            "ignore_above": 256
+          }
+        }
+      },
+      "compositevector_vector": {
+        "type": "knn_vector",
+        "dimension": 384,
+        "method": {
+          "engine": "nmslib",
+          "space_type": "cosinesimil",
+          "name": "hnsw",
+          "parameters": {
+            "ef_construction": 512,
+            "m": 16
+          }
+        }
+      }
+    }
+  }
+}'
