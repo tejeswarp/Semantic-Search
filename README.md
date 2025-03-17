@@ -99,3 +99,14 @@ curl -X 'POST' \
   'http://127.0.0.1:8000/search_customer?query=durga' \
   -H 'accept: application/json' \
   -d ''
+
+CURL for testinng Semactic search with POST JSON Object
+
+curl -X 'POST' \
+  'http://127.0.0.1:8000/all-MiniLM-L6-v2/eval' \
+  -H 'accept: application/json' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "fname": "sandep",
+  "address": "stevnage"
+}'
