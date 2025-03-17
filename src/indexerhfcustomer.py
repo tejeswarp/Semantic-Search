@@ -35,6 +35,9 @@ def main(df):
                  "fname": row["fname"],
                  "lname": row["lname"],
                  "address": row["address"],
+                 "countryofbirth": row["countryofbirth"],
+                 "emailaddress": row["emailaddress"],
+                 "gender": row["gender"],
                  "compositevector": row["compositevector"],
                  "compositevector_vector": compositevector_vector
              }
