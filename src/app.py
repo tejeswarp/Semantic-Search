@@ -75,7 +75,7 @@ def search_customer(query: str):
         print(f"ID: {hit['_id']}, Score: {hit['_score']}, Source: {hit['_source']}")
     # Filter results where score > 0.65
     filtered_results = [
-        hit for hit in response["hits"]["hits"] if hit["_score"] > 0.65
+        hit for hit in response["hits"]["hits"] if hit["_score"] > 0.5
     ]
 
     return {"results": filtered_results}
@@ -134,7 +134,7 @@ def search_eval_customer(request: SimpleEvalRequest):
         print(f"ID: {hit['_id']}, Score: {hit['_score']}, Source: {hit['_source']}")
     # Filter results where score > 0.65
     filtered_results = [
-        hit for hit in response["hits"]["hits"] if hit["_score"] > 0.65
+        hit for hit in response["hits"]["hits"] if hit["_score"] >= 0.6
     ]
 
     return {"results": filtered_results}
